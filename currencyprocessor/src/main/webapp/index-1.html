@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="ISO-8859-1">
+	<title>Fx Processor Portal</title>
+	
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"> </script>
+	    <script>
+		    function handleFxProcessor()
+		    {
+		      alert("handleFxProcessor");
+		      var startFxProcessorId = document.getElementById("startFxProcessorId");
+		      if(startFxProcessorId.style.display === 'block')
+		      {
+		    	startFxProcessorId.style.display = hide;
+		    	stopFxProcessorId.style.display = block;
+		    	
+		    	document.getElementById("fxStartId").value = 1;//start processor
+		      }
+		      else
+		      {
+		    	startFxProcessorId.style.display = block;
+		    	stopFxProcessorId.style.display = hide;
+		    	
+		    	document.getElementById("fxStartId").value = 0;//stop processor
+		      }
+		      
+		      document.form[0].submit();
+		    }
+		    
+		    function stopFxProcessor()
+		    {
+		      alert("stopFxProcessor");	
+		      document.form[0].submit();
+		    }
+		    
+		    function search()
+		    {
+		      alert("search");	  
+		      alert(document.getElementById("fileNameId").value);
+		    }	    
+	    </script>
+	    
+	    
+	
+	</head>
+	<body>
+				
+		<!-- <a href="fx/processFxFiles/"> process FX files </a> -->
+		
+		
+		<form action="fx/processFxFiles/" name="searchForm">
+		
+			<div class="container">		    
+				<div class="panel panel-primary">
+				   <div class="panel-heading">
+				       	View Records
+				    </div>
+					<div class="panel-body">					
+				
+							<table class="table">
+								<!-- <th align="center">View Records</th> -->
+								<tr>
+									<td>Enter File Name: </td>
+									<td> <input type="hidden" name="fxStart" value="0" id="fxStartId"/></td>
+									<td> <input type="text" name="fileName" value="" id="fileNameId"/></td>
+									<td> <button class="btn btn-primary" onclick="startFxProcessor()"> Start Fx Processor </button></td>
+									<td> <button class="btn btn-primary" onclick="stopFxProcessor()"> Stop Fx Processor </button></td>
+									<td> <button class="btn btn-primary" onclick="search()"> Search </button></td>
+								</tr>
+							</table>					
+					   </div>						
+				</div>		
+			</div>
+			
+			<form action="fx/processFxFiles/" name="startFXProcessor">
+		
+			<div class="container">		    
+				<div class="panel panel-primary">
+				   <!-- <div class="panel-heading">
+				       	View Records
+				    </div> -->
+					<div class="panel-body">
+							<table class="table">
+								<tr>
+									<td> <button class="btn btn-primary" id="startFxProcessorId" onclick="handleFxProcessor()"> Start Fx Processor </button></td>
+									<td> <button class="btn btn-primary" id="stopFxProcessorId" onclick="handleFxProcessor()"> Stop Fx Processor </button></td>
+								</tr>
+							</table>					
+					   </div>						
+				</div>		
+			</div>
+			
+		</form>
+		
+		
+		
+		
+		
+	</body>
+</html>
